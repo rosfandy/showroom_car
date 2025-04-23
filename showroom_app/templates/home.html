@@ -1,0 +1,33 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<div class="flex justify-between">
+        <div class="px-64 ">
+            <div class="space-y-6 mt-24">
+                <div class="text-md uppercase text-slate-400">Welcome To Car Showroom</div>
+                <div class="text-5xl font-bold text-gray-700">
+                    <span class="text-[#24a4ff]">Car Showroom</span>, Explore More & Drive the Best
+                </div>
+                <div class="text-slate-500">
+                    We are the premier car showroom offering a wide range of vehicles to suit your style and needs.
+                    Discover your dream car with the best deals and a top-notch showroom experience.
+                </div>
+
+            </div>
+            <button class="bg-[#24a4ff] px-12 py-4 text-white rounded-md mt-8">Explore</button>
+        </div>
+        <img class="h-auto w-[1000px]"
+            src="https://demo.assets.templately.com/demo/blocks/13/2024/03/9a85adc8-car-banner-img.png" alt="">
+    </div>
+    <div class="flex flex-col w-full items-center">
+        <div class="flex flex-col items-center">
+            <div class="text-3xl text-gray-700 font-bold">Affordable & Premium Car</div>
+            <div class="h-[5px] w-[100px] bg-[#24a4ff] rounded-xl mt-4" />
+        </div>
+        {% if cars %}
+            {% include "components/card.html" %}
+        {% else %}
+            <div class="text-xl text-gray-500 mt-6">No data available</div>
+        {% endif %}   
+    </div>
+</div>
+{% endblock content %}

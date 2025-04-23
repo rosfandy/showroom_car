@@ -1,0 +1,15 @@
+<div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 mt-8 ">
+    {% for car in cars %}
+    <div class="border bg-white">
+        <img class="w-[400px] h-[250px] border-b" src="{{ car.image_url }}" alt="{{ car.model }}">
+        <div class="p-4">
+            <div class="text-[#24a4ff]">{{ car.brand }}</div>
+            <div class="text-2xl font-bold text-gray-700">{{ car.model }}</div>
+            <div class="text-gray-700">{{ car.year }}</div>
+        </div>
+        <div class="flex px-4 pb-4">
+            <button class="bg-[#24a4ff] w-full text-white py-2 rounded-lg">Details</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
