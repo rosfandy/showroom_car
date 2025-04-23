@@ -1,8 +1,9 @@
+from showroom_app.controllers.car import add_new_car, get_all_cars, get_car_detail, add_new_car_services, delete_car
 from decimal import Decimal
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
-from showroom_app.controllers.car import add_new_car, get_all_cars
+from .models import Car  # sesuaikan dengan nama model kamu
 
 
 def home(request):
@@ -31,3 +32,24 @@ def add_cars(request):
         return redirect('home')
 
     return render(request, 'add_cars.html')
+
+
+def car_detail(request, car_id):
+    if request.method == 'POST':
+        service = {
+            "car_id": car_id,
+            "service_date": request.POST.get('service_date'),
+            "description": request.POST.get('description'),
+            "service_cost": request.POST.get('service_cost')
+        }
+        add_new_car_services(service)
+        return redirect('car_detail', car_id=car_id)
+    datas = get_car_detail(request, car_id)
+    return render(request, 'detail_cars.html', datas)
+
+
+def delete_car(request, car_id):
+    if request.method == 'POST':
+        car = Car.objects.get(id=car_id)
+        car.delete()
+        return redirect('home')

@@ -21,6 +21,7 @@ class Car(models.Model):
 
 
 class CarService(models.Model):
+    id = models.CharField(primary_key=True)
     car = models.ForeignKey(
         Car, on_delete=models.CASCADE, related_name='services')
     service_date = models.DateField()

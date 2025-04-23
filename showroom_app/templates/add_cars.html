@@ -1,58 +1,62 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-<div class="pt-24">
-    <div class="max-w-xl mx-auto p-6 bg-white rounded shadow">
-        <h2 class="text-2xl font-bold mb-4">Tambah Mobil Baru</h2>
-        <form method="POST">
-            {% csrf_token %}
-            <div class="mb-4">
-                <label class="block mb-1 text-gray-700">Brand</label>
-                <input type="text" name="brand" class="w-full border px-3 py-2 rounded" required>
+<div class="min-h-screen bg-slate-50">
+    <div class="pt-24">
+        <div class="max-w-xl mx-auto p-6 bg-white rounded shadow">
+            <div class="">
+                <h2 class="text-2xl font-bold mb-4">Tambah Mobil Baru</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label class="block mb-1 text-gray-700">Brand</label>
+                        <input type="text" name="brand" class="w-full border px-3 py-2 rounded" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block mb-1 text-gray-700">Model</label>
+                        <input type="text" name="model" class="w-full border px-3 py-2 rounded" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block mb-1 text-gray-700">Year</label>
+                        <input type="number" name="year" class="w-full border px-3 py-2 rounded" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block mb-1 text-gray-700">Harga Dasar</label>
+                        <input type="number" name="base_price" class="w-full border px-3 py-2 rounded" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block mb-1 text-gray-700">Image URL</label>
+                        <input type="url" name="image_url" class="w-full border px-3 py-2 rounded" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <input type="checkbox" id="use_bank_loan" class="mr-2"> Beli melalui bank
+                    </div>
+
+                    <div id="loan_input_fields" class="hidden">
+                        <div class="mb-4">
+                            <label class="block mb-1 text-gray-700">Jumlah Dana Pinjaman dari Bank</label>
+                            <input type="number" name="loan_amount" class="w-full border px-3 py-2 rounded"
+                                placeholder="Jumlah pinjaman">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block mb-1 text-gray-700">Suku Bunga Bank</label>
+                            <input type="number" name="interest_rate" class="w-full border px-3 py-2 rounded"
+                                placeholder="Persen per tahun" step="0.01">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                        Submit
+                    </button>
+                </form>
             </div>
-
-            <div class="mb-4">
-                <label class="block mb-1 text-gray-700">Model</label>
-                <input type="text" name="model" class="w-full border px-3 py-2 rounded" required>
-            </div>
-
-            <div class="mb-4">
-                <label class="block mb-1 text-gray-700">Year</label>
-                <input type="number" name="year" class="w-full border px-3 py-2 rounded" required>
-            </div>
-
-            <div class="mb-4">
-                <label class="block mb-1 text-gray-700">Harga Dasar</label>
-                <input type="number" name="harga_dasar" class="w-full border px-3 py-2 rounded" required>
-            </div>
-
-            <div class="mb-4">
-                <label class="block mb-1 text-gray-700">Image URL</label>
-                <input type="url" name="image_url" class="w-full border px-3 py-2 rounded" required>
-            </div>
-
-            <div class="mb-4">
-                <input type="checkbox" id="use_bank_loan" class="mr-2"> Beli melalui bank
-            </div>
-
-            <div id="loan_input_fields" class="hidden">
-                <div class="mb-4">
-                    <label class="block mb-1 text-gray-700">Jumlah Dana Pinjaman dari Bank</label>
-                    <input type="number" name="loan_amount" class="w-full border px-3 py-2 rounded"
-                        placeholder="Jumlah pinjaman">
-                </div>
-
-                <div class="mb-4">
-                    <label class="block mb-1 text-gray-700">Suku Bunga Bank</label>
-                    <input type="number" name="interest_rate" class="w-full border px-3 py-2 rounded"
-                        placeholder="Persen per tahun" step="0.01">
-                </div>
-            </div>
-
-            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
-                Submit
-            </button>
-        </form>
+        </div>
     </div>
 </div>
 
