@@ -3,7 +3,7 @@ from decimal import Decimal
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
-from .models import Car  # sesuaikan dengan nama model kamu
+from .models import Car  
 
 
 def home(request):
